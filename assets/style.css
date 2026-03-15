@@ -1194,14 +1194,13 @@ span.xxl-font {
 
 .about-banner {
   position: relative;
-  height: 100%;
   overflow: auto;
 }
 
 .about-fontsize {
   position: relative;
   z-index: 1;
-  font-size: 1.5rem;
+  font-size: 1.175rem;
 }
 
 .about-banner::before {
@@ -1834,6 +1833,19 @@ span.xxl-font {
   .work-lockup .slider-prev {
     top: 130px;
   }
+
+  .about-banner h2 {
+    position: relative;
+    margin-top: 6rem;
+    font-size: 7rem;
+    font-weight: 900;
+    line-height: 1;
+    z-index: 1;
+  }
+
+  .about-fontsize {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 767px) {
@@ -1996,6 +2008,10 @@ span.xxl-font {
     display: none;
   }
 
+  .about-fontsize {
+    font-size: 0.875rem;
+  }
+
   .work-lockup .slider {
     width: auto;
   }
@@ -2003,10 +2019,6 @@ span.xxl-font {
   .work-lockup .slider-item-left,
   .work-lockup .slider-item-right {
     display: none;
-  }
-
-  .about-fontsize {
-    font-size: 1.25rem;
   }
 
   .outer-nav > li {
