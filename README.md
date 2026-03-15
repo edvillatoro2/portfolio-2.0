@@ -33,6 +33,3 @@ open index.html
 - Responsive design
 - Project showcase
 - Contact section
-
-## 📬 Contact
-- GitHub: [@edvillatoro2](https://github.com/edvillatoro2)
