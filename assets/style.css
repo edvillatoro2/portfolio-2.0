@@ -1093,9 +1093,13 @@ body {
 .contact-lockup .modal {
   padding: 45px;
   text-align: center;
-  background-color: #0c0c0c;
-  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 2.5);
   width: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 2px solid rgba(255, 255, 255, 0.075);
+  border-radius: 16px;
 }
 
 .contact-lockup .modal-information p,
