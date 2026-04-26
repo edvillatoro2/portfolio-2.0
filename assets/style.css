@@ -583,7 +583,7 @@ body {
   position: relative;
   top: 3px;
   left: 10px;
-  color: #ea4c89;
+  color: rgba(234, 76, 137, 0.75);
   font-size: 1.525rem;
   font-weight: 300;
   opacity: 0;
@@ -670,6 +670,11 @@ body {
   /* height:475px */
 }
 
+.about-info {
+  /* border-radius: 12px;
+  background-color: white; */
+}
+
 .intro-banner::before {
   content: "";
   position: absolute;
@@ -692,16 +697,16 @@ body {
 
 .intro-banner h1 {
   position: relative;
-  font-size: 3rem;
+  font-size: 1.75rem;
   font-weight: 900;
   line-height: 1;
   letter-spacing: 0.525rem;
   z-index: 1;
 }
 
-span.xxl-font {
-  font-size: 11rem;
-  color: rgb(134, 134, 172);
+h1.xxl-font {
+  font-size: 8.25rem;
+  color: rgb(134, 134, 172, 0.5);
 }
 
 .intro-banner button {
@@ -967,13 +972,17 @@ span.xxl-font {
 }
 
 .scrolling-bar {
-  background: white;
-  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
-  height: 50px;
+  height: 25px;
   overflow: hidden;
   position: relative;
   width: 100%;
-  color: black;
+  color: white;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(0.25px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.75);
 }
 
 /* .scrolling-bar::before,
