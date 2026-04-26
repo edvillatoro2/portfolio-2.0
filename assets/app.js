@@ -437,3 +437,58 @@ document.addEventListener("DOMContentLoaded", function () {
   // ============================================================
   outerNav();
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".card-tilt");
+
+  console.log("cards found:", cards.length); // DEBUG
+
+  cards.forEach((card) => {
+    const glow = card.querySelector(".card-glow");
+
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      // 🔥 STRONGER tilt so you can SEE it
+      const rotateX = ((y - centerY) / centerY) * -15;
+      const rotateY = ((x - centerX) / centerX) * 15;
+
+      card.style.transform = `
+        rotateX(${rotateX}deg)
+        rotateY(${rotateY}deg)
+        scale(1.04)
+      `;
+
+      // 🔥 MUCH stronger glow so it's obvious
+      glow.style.background = `
+        radial-gradient(
+          circle at ${x}px ${y}px,
+          rgba(79, 172, 254, 0.7),
+          transparent 60%
+        )
+      `;
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = `
+        rotateX(0deg)
+        rotateY(0deg)
+        scale(1)
+      `;
+
+      glow.style.background = `
+        radial-gradient(
+          circle at 50% 50%,
+          rgba(79, 172, 254, 0.35),
+          transparent 60%
+        )
+      `;
+    });
+  });
+});
