@@ -408,6 +408,12 @@ body {
   letter-spacing: 0.2rem;
 }
 
+.header-cta:hover {
+  background-color: red;
+  transition: background-color 1000ms ease-in-out;
+  letter-spacing: 0.2rem;
+}
+
 .header-cta:focus {
   outline: none;
 }
@@ -1405,9 +1411,6 @@ body {
 }
 
 @media (max-width: 767px) {
-  .header-cta {
-    display: none;
-  }
   .intro-banner {
     height: 305px;
   }

@@ -455,7 +455,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
 
-      // 🔥 STRONGER tilt so you can SEE it
       const rotateX = ((y - centerY) / centerY) * -15;
       const rotateY = ((x - centerX) / centerX) * 15;
 
@@ -465,7 +464,6 @@ document.addEventListener("DOMContentLoaded", () => {
         scale(1.04)
       `;
 
-      // 🔥 MUCH stronger glow so it's obvious
       glow.style.background = `
         radial-gradient(
           circle at ${x}px ${y}px,
