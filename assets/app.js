@@ -1,33 +1,182 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // DOM is fully loaded, now you can add your JavaScript
+  // ============================================================
+  // HERO CANVAS BACKGROUND
+  // ============================================================
+  (function () {
+    const canvas = document.getElementById("hero-bg");
+    if (!canvas) return;
+    const hero = canvas.parentElement;
+    const ctx = canvas.getContext("2d");
 
-  // 1. Mouse Wheel Event
-  let canScroll = true,
-    scrollController = null;
-  document.addEventListener("wheel", function (e) {
-    if (!document.querySelector(".outer-nav").classList.contains("is-vis")) {
-      e.preventDefault();
-      const delta = e.deltaY || e.detail * 20;
+    let W, H, particles;
+    const mouse = { x: -999, y: -999 };
+    const COLS = ["rgba(15,51,255,", "rgba(134,134,172,", "rgba(255,255,255,"];
 
-      if (delta > 50 && canScroll) {
-        canScroll = false;
-        clearTimeout(scrollController);
-        scrollController = setTimeout(function () {
-          canScroll = true;
-        }, 800);
-        updateHelper(1);
-      } else if (delta < -50 && canScroll) {
-        canScroll = false;
-        clearTimeout(scrollController);
-        scrollController = setTimeout(function () {
-          canScroll = true;
-        }, 800);
-        updateHelper(-1);
+    function resize() {
+      W = canvas.width = hero.offsetWidth;
+      H = canvas.height = hero.offsetHeight;
+      init();
+    }
+
+    function init() {
+      const GRID = 32;
+      particles = [];
+      const cols = Math.ceil(W / GRID) + 1;
+      const rows = Math.ceil(H / GRID) + 1;
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          particles.push({
+            x: c * GRID,
+            y: r * GRID,
+            ox: c * GRID,
+            oy: r * GRID,
+            vx: 0,
+            vy: 0,
+            size: Math.random() < 0.12 ? 1.8 : 0.8,
+            phase: Math.random() * Math.PI * 2,
+            speed: 0.4 + Math.random() * 0.6,
+            ci: Math.floor(Math.random() * COLS.length),
+          });
+        }
       }
     }
-  });
 
-  // 2. Navigation Item Click
+    let t = 0;
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+
+      // base background
+      ctx.fillStyle = "#060610";
+      ctx.fillRect(0, 0, W, H);
+
+      // blue glow — top left
+      const g1 = ctx.createRadialGradient(
+        W * 0.15,
+        H * 0.3,
+        0,
+        W * 0.15,
+        H * 0.3,
+        W * 0.55,
+      );
+      g1.addColorStop(0, "rgba(15,51,255,0.12)");
+      g1.addColorStop(1, "rgba(6,6,16,0)");
+      ctx.fillStyle = g1;
+      ctx.fillRect(0, 0, W, H);
+
+      // purple glow — bottom right
+      const g2 = ctx.createRadialGradient(
+        W * 0.8,
+        H * 0.7,
+        0,
+        W * 0.8,
+        H * 0.7,
+        W * 0.4,
+      );
+      g2.addColorStop(0, "rgba(134,134,172,0.07)");
+      g2.addColorStop(1, "rgba(6,6,16,0)");
+      ctx.fillStyle = g2;
+      ctx.fillRect(0, 0, W, H);
+
+      // particles
+      particles.forEach(function (p) {
+        const dx = mouse.x - p.ox;
+        const dy = mouse.y - p.oy;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const REPEL = 80;
+
+        if (dist < REPEL) {
+          const force = (REPEL - dist) / REPEL;
+          p.vx -= (dx / dist) * force * 1.8;
+          p.vy -= (dy / dist) * force * 1.8;
+        }
+
+        // spring return
+        p.vx *= 0.88;
+        p.vy *= 0.88;
+        p.x = p.ox + p.vx;
+        p.y = p.oy + p.vy;
+
+        const pulse = Math.sin(t * p.speed + p.phase) * 0.5 + 0.5;
+        const alpha = p.size > 1 ? 0.5 + pulse * 0.5 : 0.15 + pulse * 0.2;
+
+        // core dot
+        ctx.beginPath();
+        ctx.arc(
+          p.x,
+          p.y,
+          p.size * (p.size > 1 ? 0.8 + pulse * 0.4 : 1),
+          0,
+          Math.PI * 2,
+        );
+        ctx.fillStyle = COLS[p.ci] + alpha + ")";
+        ctx.fill();
+
+        // halo on bright nodes
+        if (p.size > 1 && pulse > 0.7) {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size * 3, 0, Math.PI * 2);
+          ctx.fillStyle = COLS[p.ci] + (0.04 * (pulse - 0.7)) / 0.3 + ")";
+          ctx.fill();
+        }
+      });
+
+      t += 0.02;
+      requestAnimationFrame(draw);
+    }
+
+    hero.addEventListener("mousemove", function (e) {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    });
+
+    hero.addEventListener("mouseleave", function () {
+      mouse.x = -999;
+      mouse.y = -999;
+    });
+
+    window.addEventListener("resize", resize);
+    resize();
+    draw();
+  })();
+
+  // ============================================================
+  // 1. MOUSE WHEEL NAVIGATION
+  // ============================================================
+  let canScroll = true,
+    scrollController = null;
+
+  document.addEventListener(
+    "wheel",
+    function (e) {
+      if (!document.querySelector(".outer-nav").classList.contains("is-vis")) {
+        e.preventDefault();
+        const delta = e.deltaY || e.detail * 20;
+
+        if (delta > 50 && canScroll) {
+          canScroll = false;
+          clearTimeout(scrollController);
+          scrollController = setTimeout(function () {
+            canScroll = true;
+          }, 800);
+          updateHelper(1);
+        } else if (delta < -50 && canScroll) {
+          canScroll = false;
+          clearTimeout(scrollController);
+          scrollController = setTimeout(function () {
+            canScroll = true;
+          }, 800);
+          updateHelper(-1);
+        }
+      }
+    },
+    { passive: false },
+  );
+
+  // ============================================================
+  // 2. NAVIGATION ITEM CLICK
+  // ============================================================
   document
     .querySelectorAll(".side-nav li, .outer-nav li")
     .forEach(function (item) {
@@ -46,7 +195,9 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
-  // 3. CTA Button Click
+  // ============================================================
+  // 3. CTA BUTTON CLICK
+  // ============================================================
   document.querySelector(".cta").addEventListener("click", function () {
     const curActive = document.querySelector(".side-nav .is-active");
     const curPos = Array.from(
@@ -59,7 +210,9 @@ document.addEventListener("DOMContentLoaded", function () {
     updateContent(curPos, nextPos, lastItem);
   });
 
-  // 4. Swipe Support (Touch Event)
+  // ============================================================
+  // 4. SWIPE SUPPORT (TOUCH)
+  // ============================================================
   const targetElement = document.getElementById("viewport");
   let startTouch = 0;
 
@@ -76,7 +229,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // 5. Keyboard Arrow Key Event
+  // ============================================================
+  // 5. KEYBOARD ARROW KEY NAVIGATION
+  // ============================================================
   document.addEventListener("keyup", function (e) {
     if (!document.querySelector(".outer-nav").classList.contains("is-vis")) {
       e.preventDefault();
@@ -84,7 +239,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // 6. Helper Function (Used in many places)
+  // ============================================================
+  // 6. HELPER — DETERMINE NEXT POSITION
+  // ============================================================
   function updateHelper(param) {
     const curActive = document.querySelector(".side-nav .is-active");
     const curPos = Array.from(
@@ -96,12 +253,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if (param.type === "swipeup" || param.keyCode === 40 || param > 0) {
       if (curPos !== lastItem) {
         nextPos = curPos + 1;
-        updateNavs(nextPos);
-        updateContent(curPos, nextPos, lastItem);
       } else {
-        updateNavs(nextPos);
-        updateContent(curPos, nextPos, lastItem);
+        nextPos = 0;
       }
+      updateNavs(nextPos);
+      updateContent(curPos, nextPos, lastItem);
     } else if (
       param.type === "swipedown" ||
       param.keyCode === 38 ||
@@ -109,49 +265,53 @@ document.addEventListener("DOMContentLoaded", function () {
     ) {
       if (curPos !== 0) {
         nextPos = curPos - 1;
-        updateNavs(nextPos);
-        updateContent(curPos, nextPos, lastItem);
       } else {
         nextPos = lastItem;
-        updateNavs(nextPos);
-        updateContent(curPos, nextPos, lastItem);
       }
+      updateNavs(nextPos);
+      updateContent(curPos, nextPos, lastItem);
     }
   }
 
-  // 7. Update Navigation
+  // ============================================================
+  // 7. UPDATE NAVIGATION STATE
+  // ============================================================
   function updateNavs(nextPos) {
     document.querySelectorAll(".side-nav, .outer-nav").forEach(function (nav) {
-      [...nav.children].forEach(function (item) {
+      Array.from(nav.children).forEach(function (item) {
         item.classList.remove("is-active");
       });
       nav.children[nextPos].classList.add("is-active");
     });
   }
 
-  // 8. Update Content
+  // ============================================================
+  // 8. UPDATE CONTENT SECTIONS
+  // ============================================================
   function updateContent(curPos, nextPos, lastItem) {
     const sections = document.querySelectorAll(".main-content .section");
+
     sections.forEach(function (section) {
-      section.classList.remove("section-is-active");
+      section.classList.remove(
+        "section-is-active",
+        "section-next",
+        "section-prev",
+      );
     });
 
     sections[nextPos].classList.add("section-is-active");
-    sections.forEach(function (section) {
-      section.classList.remove("section-next", "section-prev");
-    });
 
     if (
-      (curPos === lastItem && nextPos === 0) ||
-      (curPos === 0 && nextPos === lastItem)
+      !(
+        (curPos === lastItem && nextPos === 0) ||
+        (curPos === 0 && nextPos === lastItem)
+      )
     ) {
-      sections.forEach(function (section) {
-        section.classList.remove("section-next", "section-prev");
-      });
-    } else if (curPos < nextPos) {
-      sections[curPos].classList.add("section-next");
-    } else {
-      sections[curPos].classList.add("section-prev");
+      if (curPos < nextPos) {
+        sections[curPos].classList.add("section-next");
+      } else {
+        sections[curPos].classList.add("section-prev");
+      }
     }
 
     if (nextPos !== 0 && nextPos !== lastItem) {
@@ -161,7 +321,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // 9. Outer Navigation
+  // ============================================================
+  // 9. OUTER (HAMBURGER) NAVIGATION
+  // ============================================================
   function outerNav() {
     document
       .querySelector(".header-nav-toggle")
@@ -197,13 +359,16 @@ document.addEventListener("DOMContentLoaded", function () {
           document.querySelector(".outer-nav").classList.remove("is-vis");
           document
             .querySelectorAll(".outer-nav li, .outer-nav-return")
-            .forEach(function (item) {
-              item.classList.remove("is-vis");
+            .forEach(function (el) {
+              el.classList.remove("is-vis");
             });
         });
       });
   }
 
+  // ============================================================
+  // 10. PORTFOLIO SLIDER
+  // ============================================================
   let currentIndex = 0;
 
   function updateSliderPosition() {
@@ -211,8 +376,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const items = Array.from(slider.children);
     const totalWorks = items.length;
 
-    // Clear all previous classes
-    items.forEach((item) => {
+    items.forEach(function (item) {
       item.classList.remove(
         "slider-item-left",
         "slider-item-center",
@@ -220,28 +384,23 @@ document.addEventListener("DOMContentLoaded", function () {
       );
     });
 
-    // Calculate new positions
     const leftIndex = (currentIndex - 1 + totalWorks) % totalWorks;
     const centerIndex = currentIndex;
     const rightIndex = (currentIndex + 1) % totalWorks;
 
-    // Apply classes
     items[leftIndex].classList.add("slider-item-left");
     items[centerIndex].classList.add("slider-item-center");
     items[rightIndex].classList.add("slider-item-right");
   }
 
-  // Initial setup when page loads
   updateSliderPosition();
 
-  // Navigation buttons
   document
     .querySelectorAll(".slider-prev, .slider-next")
     .forEach(function (button) {
       button.addEventListener("click", function () {
         const slider = document.querySelector(".slider");
-        const items = Array.from(slider.children);
-        const totalWorks = items.length;
+        const totalWorks = Array.from(slider.children).length;
 
         slider.style.opacity = 0;
 
@@ -251,14 +410,15 @@ document.addEventListener("DOMContentLoaded", function () {
           } else {
             currentIndex = (currentIndex - 1 + totalWorks) % totalWorks;
           }
-
           updateSliderPosition();
           slider.style.opacity = 1;
         }, 400);
       });
     });
 
-  // 11. Transition Labels
+  // ============================================================
+  // 11. FLOATING LABEL INPUTS
+  // ============================================================
   document
     .querySelectorAll(".work-request-information input")
     .forEach(function (input) {
@@ -268,10 +428,12 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
           this.classList.add("has-value");
         }
-        window.scrollTo(0, 0); // Correct mobile device window position
+        window.scrollTo(0, 0);
       });
     });
 
-  // Call the necessary functions
+  // ============================================================
+  // INIT
+  // ============================================================
   outerNav();
 });

@@ -1,13 +1,12 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Global</title>
+    <title>Edgar Villatoro</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="HTML5 website template" />
-    <meta name="keywords" content="global, template, html, sass, jquery" />
-    <meta name="author" content="Bucky Maler" />
+    <meta name="description" content="Edgar Villatoro - Front-end Developer" />
+    <meta name="keywords" content="frontend, developer, vue, javascript" />
+    <meta name="author" content="Edgar Villatoro" />
     <link rel="stylesheet" href="assets/style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="assets/app.js"></script>
@@ -45,16 +44,22 @@
               </ul>
             </nav>
             <ul class="l-main-content main-content">
+              <!-- ===== HERO SECTION ===== -->
               <li class="l-section section section-is-active">
                 <div class="intro">
+                  <canvas id="hero-bg"></canvas>
                   <div class="intro-banner">
                     <div class="about-info">
-                      <h1>
-                        <span class="xxl-font"> Edgar Villatoro </span>
-                        FrontEnd Developer
+                      <p class="greeting">Edgar Villatoro</p>
+                      <h1 class="main-title">
+                        <span class="title-word">Frontend</span
+                        ><span class="title-word accent">Developer</span
+                        ><span class="cursor-line"></span>
                       </h1>
+                      <p class="subtitle">
+                        Vue.js &middot; TypeScript &middot; 5+ Years
+                      </p>
                     </div>
-
                     <div class="about-card">
                       <img
                         class="about-card__img"
@@ -72,7 +77,7 @@
                       <span class="scrolling-item">Nuxt</span>
                       <span class="scrolling-item">Tailwind</span>
                       <span class="scrolling-item">Sass</span>
-                      <span class="scrolling-item">Boostrap</span>
+                      <span class="scrolling-item">Bootstrap</span>
                       <span class="scrolling-item">Pinia</span>
                       <span class="scrolling-item">Vite</span>
                       <span class="scrolling-item">GitHub</span>
@@ -89,6 +94,8 @@
                   </div>
                 </div>
               </li>
+
+              <!-- ===== PORTFOLIO SECTION ===== -->
               <li class="l-section section">
                 <div class="work">
                   <h2>Portfolio</h2>
@@ -99,7 +106,7 @@
                           <div class="slider-item-image">
                             <img
                               src="./assets/img/nuxtNotes.png"
-                              alt="test app"
+                              alt="NuxtNotes app"
                             />
                           </div>
                         </a>
@@ -107,35 +114,14 @@
                         <a
                           href="https://github.com/edvillatoro2/nuxt-notes/"
                           target="_blank"
+                          >Github Page</a
                         >
-                          Github Page
-                        </a>
                       </li>
-                      <!-- <li class="slider-item">
-                        <a
-                          href="https://etch-a-sketching.netlify.app/"
-                          target="_blank"
-                        >
-                          <div class="slider-item-image">
-                            <img
-                              src="./assets/img/etch-a-sketch.png"
-                              alt="etch-a-sketch"
-                            />
-                          </div>
-                        </a>
-                        <h3 class="slider-item-title">etch-a-sketch</h3>
-                        <a
-                          href="https://github.com/edvillatoro2/etch-a-sketch"
-                          target="_blank"
-                        >
-                          Github Page
-                        </a>
-                      </li> -->
                       <li class="slider-item">
                         <div class="slider-item-image">
                           <img
                             src="./assets/img/demo.gif"
-                            alt="etch-a-sketch"
+                            alt="Fetch chrome extension"
                           />
                         </div>
                         <h3 class="slider-item-title">
@@ -144,9 +130,8 @@
                         <a
                           href="https://github.com/edvillatoro2/fetch"
                           target="_blank"
+                          >Github Page</a
                         >
-                          Github Page
-                        </a>
                       </li>
                       <li class="slider-item">
                         <a
@@ -164,9 +149,8 @@
                         <a
                           href="https://github.com/edvillatoro2/frontend-mentor-tip-calculator/"
                           target="_blank"
+                          >Github Page</a
                         >
-                          Github Page
-                        </a>
                       </li>
                       <li class="slider-item">
                         <a
@@ -184,9 +168,8 @@
                         <a
                           href="https://github.com/edvillatoro2/finance-dashboard"
                           target="_blank"
+                          >Github Page</a
                         >
-                          Github Page
-                        </a>
                       </li>
                       <li class="slider-item">
                         <a
@@ -196,7 +179,7 @@
                           <div class="slider-item-image">
                             <img
                               src="./assets/img/scissors-roc-paper.netlify.app_.png"
-                              alt="weather app"
+                              alt="Rock Paper Scissors"
                             />
                           </div>
                         </a>
@@ -204,9 +187,8 @@
                         <a
                           href="https://github.com/edvillatoro2/rock-paper-scissors"
                           target="_blank"
+                          >Github Page</a
                         >
-                          Github Page
-                        </a>
                       </li>
                     </ul>
                     <div class="slider-prev">
@@ -225,9 +207,7 @@
                           transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)"
                         >
                           <path
-                            d="M561,1169C525,1155,10,640,3,612c-3-13,1-36,8-52c8-15,134-145,281-289C527,41,562,10,590,10c22,0,41,9,61,29
-                    c55,55,49,64-163,278L296,510h575c564,0,576,0,597,20c46,43,37,109-18,137c-19,10-159,13-590,13l-565,1l182,180
-                    c101,99,187,188,193,199c16,30,12,57-12,84C631,1174,595,1183,561,1169z"
+                            d="M561,1169C525,1155,10,640,3,612c-3-13,1-36,8-52c8-15,134-145,281-289C527,41,562,10,590,10c22,0,41,9,61,29c55,55,49,64-163,278L296,510h575c564,0,576,0,597,20c46,43,37,109-18,137c-19,10-159,13-590,13l-565,1l182,180c101,99,187,188,193,199c16,30,12,57-12,84C631,1174,595,1183,561,1169z"
                           />
                         </g>
                       </svg>
@@ -256,48 +236,48 @@
                   </div>
                 </div>
               </li>
+
+              <!-- ===== ABOUT SECTION ===== -->
               <li class="l-section section">
                 <div class="about">
-                  <div class="about-banner">
-                    <h2>About</h2>
-                    <p class="about-fontsize">
-                      Front-End Developer with 5+ years of experience building
-                      web interfaces that actually feel good to use. I got into
-                      web development because I was genuinely fascinated by how
-                      the web works under the hood, and that curiosity hasn't
-                      slowed down since.
-                    </p>
-                    <p class="about-fontsize">
-                      Most of my work has lived in the Vue.js ecosystem,
-                      building component-based architectures, working with
-                      TypeScript in larger codebases, and translating Figma
-                      designs into pixel-perfect, accessible interfaces. I care
-                      a lot about the details: whether that's getting the
-                      spacing just right, making sure a component is reusable
-                      and well-documented, or writing a unit test that'll save
-                      future-me from a headache down the road.
-                    </p>
-                    <p class="about-fontsize">
-                      On the tooling side, I'm comfortable with GitLab/GitHub,
-                      Vite, Webpack, and I've been leaning more into Storybook
-                      for component documentation and Jest for unit testing. I
-                      also have a soft spot for styling; Tailwind CSS, Sass, or
-                      plain CSS, I enjoy the craft of making things look and
-                      feel polished.
-                    </p>
-                    <p class="about-fontsize">
-                      What I genuinely enjoy most though is the collaborative
-                      side of this work. I like being in rooms (or Slack
-                      channels) where ideas get challenged, problems get solved
-                      together, and everyone's trying to build something they're
-                      proud of. Front-end development, at its core, is about
-                      people, and I try to keep that in mind with every line of
-                      code I write. If you want to connect or work on something
-                      together, I'd love to hear from you.
-                    </p>
+                  <div class="about-container">
+                    <!-- LEFT: TEXT -->
+                    <div class="about-banner">
+                      <h2>About</h2>
+
+                      <p class="about-fontsize">
+                        Front-End Developer with 5+ years of experience building
+                        web interfaces that actually feel good to use...
+                      </p>
+
+                      <p class="about-fontsize">
+                        Most of my work has lived in the Vue.js ecosystem...
+                      </p>
+
+                      <p class="about-fontsize">
+                        On the tooling side, I'm comfortable with
+                        GitLab/GitHub...
+                      </p>
+
+                      <p class="about-fontsize">
+                        What I genuinely enjoy most though is the collaborative
+                        side of this work...
+                      </p>
+                    </div>
+
+                    <!-- RIGHT: CARD -->
+                    <div class="about-card about-card--about">
+                      <img
+                        class="about-card__img"
+                        src="./assets/img/profile-pic.jpg"
+                        alt="Edgar Villatoro"
+                      />
+                    </div>
                   </div>
                 </div>
               </li>
+
+              <!-- ===== CONTACT SECTION ===== -->
               <li class="l-section section">
                 <div class="contact">
                   <div class="contact-lockup">
@@ -324,7 +304,7 @@
                           >
                         </li>
                         <li>
-                          <a href="mailto:edvillatoro2l@gmail.com">Email</a>
+                          <a href="mailto:edvillatoro2@gmail.com">Email</a>
                         </li>
                       </ul>
                     </div>
