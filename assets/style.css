@@ -208,7 +208,7 @@ body {
   background-color: #0c0c0c;
   font-size: 1rem;
   line-height: 1.6;
-  font-family: "Bebas Neue", cursive;
+  font-family: "Bebas Neue", sans-serif;
   color: #fff;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
@@ -393,35 +393,62 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
+
   padding: 0 20px;
   line-height: 30px;
-  text-decoration: none;
+
+  background: linear-gradient(135deg, #ffffff, #eaeaea);
   color: #000;
+
   font-weight: 700;
   text-transform: uppercase;
-  background-color: #fff;
+  letter-spacing: 0.12rem;
   border: none;
+  overflow: hidden;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.4s ease-in-out, visibility 0s 0.4s;
-  letter-spacing: 0.2rem;
+  /* ✅ unified timing (this is the key) */
+  transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1), letter-spacing 0.35s ease,
+    background 0.35s ease;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* shine effect */
+.header-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.6),
+    transparent 80%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .header-cta:hover {
-  background-color: red;
-  transition: background-color 1000ms ease-in-out;
-  letter-spacing: 0.2rem;
+  transform: translate(-50%, -55%) scale(1.06);
+  background: linear-gradient(135deg, #ea4c89, #ff7aa2);
+  color: #fff;
+  letter-spacing: 0.18rem;
+  box-shadow: 0 10px 25px rgba(234, 76, 137, 0.4),
+    0 0 18px rgba(234, 76, 137, 0.25);
 }
 
-.header-cta:focus {
-  outline: none;
+.header-cta:hover::before {
+  transform: translateX(120%);
 }
 
 .header-cta.is-active {
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.4s ease-in-out 0.4s;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 /* ============================================================
@@ -594,7 +621,7 @@ body {
   display: inline-block;
   width: 3px;
   height: 0.8em;
-  background: #0f33ff;
+  background: #ea4c89;
   margin-left: 5px;
   vertical-align: middle;
   opacity: 0;
@@ -623,7 +650,7 @@ body {
   grid-template-columns: repeat(5, 1fr);
   -ms-grid-rows: 1fr 1rem auto;
   grid-template-rows: 1fr 1rem auto;
-  max-width: 40rem;
+  max-width: 30rem;
   margin: auto;
   position: relative;
   -webkit-box-shadow: 0.75rem -0.5rem 0 var(-accent), 0 -0.5rem 0 var(-primary),
@@ -1074,15 +1101,66 @@ body {
    ============================================================ */
 .contact {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("./img/topography.svg");
-  background-color: #ffffff2e;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  inset: 0;
+  overflow: hidden;
+  /* layered background */
+  background: radial-gradient(
+      circle at 20% 30%,
+      rgba(234, 76, 137, 0.15),
+      transparent 40%
+    ),
+    radial-gradient(circle at 80% 70%, rgba(15, 51, 255, 0.15), transparent 40%),
+    #050507;
+  /* smooth fade when entering section */
+  animation: contactFadeIn 0.8s ease forwards;
+}
+@keyframes contactFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.contact::before,
+.contact::after {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.contact::before {
+  background: #ea4c89;
+  top: -150px;
+  left: -150px;
+  animation: floatBlob 18s ease-in-out infinite;
+}
+
+.contact::after {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+@keyframes floatBlob {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(80px, -60px) scale(1.1);
+  }
 }
 
 .contact-lockup {
@@ -1104,20 +1182,16 @@ body {
   width: 100%;
   max-width: 420px;
   margin: 0 auto;
-
   border-radius: 20px;
   overflow: hidden;
-
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-
   border: 1px solid rgba(255, 255, 255, 0.15);
-
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6),
     inset 0 0 0 rgba(255, 255, 255, 0.05);
-
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s ease;
 }
 
 /* enable 3D */
@@ -1134,24 +1208,23 @@ body {
 
 /* glowing gradient overlay */
 .card-glow {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-
   background: radial-gradient(
-    circle at 50% 50%,
-    rgba(79, 172, 254, 0.35),
+    circle at var(--x, 50%) var(--y, 50%),
+    rgba(234, 76, 137, 0.35),
     transparent 60%
   );
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
 
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
+.card-tilt:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(234, 76, 137, 0.25);
 }
 
 /* enhance on hover */
 .card-tilt:hover .card-glow {
-  opacity: 1;
+  opacity: 0.9;
 }
 
 /* optional: subtle inner shine */
@@ -1208,19 +1281,14 @@ body {
   display: block;
   padding: 10px 0;
   border-radius: 999px;
-
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;
-
   color: #fff;
-
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.15);
-
   backdrop-filter: blur(10px);
-
-  transition: all 0.75s ease-in-out;
+  transition: transform 0.2s ease, background 0.25s ease, box-shadow 0.25s ease;
 }
 
 /* hover effect */
@@ -1231,7 +1299,7 @@ body {
 
 /* individual brand accents */
 .card-options li:nth-child(1) a:hover {
-  background: #0a66c2;
+  background: #0f33ff;
 }
 
 .card-options li:nth-child(2) a:hover {
@@ -1239,7 +1307,7 @@ body {
 }
 
 .card-options li:nth-child(3) a:hover {
-  background: #6c63ff;
+  background: #ea4c89;
 }
 
 /* ============================================================

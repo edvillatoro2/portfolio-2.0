@@ -440,9 +440,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".card-tilt");
-
-  console.log("cards found:", cards.length); // DEBUG
-
   cards.forEach((card) => {
     const glow = card.querySelector(".card-glow");
 
