@@ -1103,6 +1103,7 @@ body {
   position: fixed;
   inset: 0;
   overflow: hidden;
+
   /* layered background */
   background: radial-gradient(
       circle at 20% 30%,
@@ -1111,18 +1112,9 @@ body {
     ),
     radial-gradient(circle at 80% 70%, rgba(15, 51, 255, 0.15), transparent 40%),
     #050507;
+
   /* smooth fade when entering section */
   animation: contactFadeIn 0.8s ease forwards;
-}
-@keyframes contactFadeIn {
-  from {
-    opacity: 0;
-    transform: scale(1.02);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
 }
 
 .contact::before,
@@ -1145,12 +1137,10 @@ body {
 }
 
 .contact::after {
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.03) 1px,
-      transparent 1px
-    ),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
+  background: #0f33ff;
+  bottom: -150px;
+  right: -150px;
+  animation: floatBlob 22s ease-in-out infinite reverse;
 }
 
 @keyframes floatBlob {
