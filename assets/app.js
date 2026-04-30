@@ -366,55 +366,72 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 
-  // ============================================================
-  // 10. PORTFOLIO SLIDER
-  // ============================================================
-  let currentIndex = 0;
-
-  function updateSliderPosition() {
+  (function initPortfolioSlider() {
     const slider = document.querySelector(".slider");
-    const items = Array.from(slider.children);
-    const totalWorks = items.length;
+    if (!slider) return;
 
-    items.forEach(function (item) {
-      item.classList.remove(
-        "slider-item-left",
-        "slider-item-center",
-        "slider-item-right",
-      );
-    });
+    const items = Array.from(slider.querySelectorAll(".slider-item"));
+    const total = items.length;
+    let current = 0;
 
-    const leftIndex = (currentIndex - 1 + totalWorks) % totalWorks;
-    const centerIndex = currentIndex;
-    const rightIndex = (currentIndex + 1) % totalWorks;
-
-    items[leftIndex].classList.add("slider-item-left");
-    items[centerIndex].classList.add("slider-item-center");
-    items[rightIndex].classList.add("slider-item-right");
-  }
-
-  updateSliderPosition();
-
-  document
-    .querySelectorAll(".slider-prev, .slider-next")
-    .forEach(function (button) {
-      button.addEventListener("click", function () {
-        const slider = document.querySelector(".slider");
-        const totalWorks = Array.from(slider.children).length;
-
-        slider.style.opacity = 0;
-
-        setTimeout(function () {
-          if (button.classList.contains("slider-next")) {
-            currentIndex = (currentIndex + 1) % totalWorks;
-          } else {
-            currentIndex = (currentIndex - 1 + totalWorks) % totalWorks;
-          }
-          updateSliderPosition();
-          slider.style.opacity = 1;
-        }, 400);
+    // Build dot pagination
+    const dotsContainer = document.querySelector(".slider-dots");
+    if (dotsContainer) {
+      items.forEach(function (_, i) {
+        const dot = document.createElement("button");
+        dot.className = "slider-dot" + (i === 0 ? " is-active" : "");
+        dot.setAttribute("aria-label", "Go to slide " + (i + 1));
+        dot.addEventListener("click", function () {
+          goTo(i);
+        });
+        dotsContainer.appendChild(dot);
       });
-    });
+    }
+
+    function getPos(index) {
+      const prev = (current - 1 + total) % total;
+      const next = (current + 1) % total;
+      if (index === current) return "pos-center";
+      if (index === prev) return "pos-left";
+      if (index === next) return "pos-right";
+      return "";
+    }
+
+    function render() {
+      items.forEach(function (item, i) {
+        item.classList.remove("pos-left", "pos-center", "pos-right");
+        const pos = getPos(i);
+        if (pos) item.classList.add(pos);
+      });
+
+      // Update dots
+      const dots = document.querySelectorAll(".slider-dot");
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle("is-active", i === current);
+      });
+    }
+
+    function goTo(index) {
+      current = (index + total) % total;
+      render();
+    }
+
+    // Arrow buttons
+    const prevBtn = document.querySelector(".slider-arrow-prev");
+    const nextBtn = document.querySelector(".slider-arrow-next");
+
+    if (prevBtn)
+      prevBtn.addEventListener("click", function () {
+        goTo(current - 1);
+      });
+    if (nextBtn)
+      nextBtn.addEventListener("click", function () {
+        goTo(current + 1);
+      });
+
+    // Initial render
+    render();
+  })();
 
   // ============================================================
   // 11. FLOATING LABEL INPUTS
@@ -440,6 +457,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".card-tilt");
+
   cards.forEach((card) => {
     const glow = card.querySelector(".card-glow");
 

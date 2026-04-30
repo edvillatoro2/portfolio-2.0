@@ -99,143 +99,323 @@
               </li>
 
               <!-- ===== PORTFOLIO SECTION ===== -->
+
               <li class="l-section section">
                 <div class="work">
-                  <h2>Portfolio</h2>
+                  <div class="work-header">
+                    <div class="work-eyebrow">
+                      <span class="work-eyebrow-line"></span>
+                      <span class="work-eyebrow-text">MY WORK</span>
+                      <span class="work-eyebrow-line"></span>
+                    </div>
+                    <h2 class="work-title">
+                      PORT<span class="work-title-accent">F</span>OLIO
+                    </h2>
+                    <p class="work-subtitle">
+                      A SELECTION OF PROJECTS I'VE BUILT
+                    </p>
+                  </div>
+
                   <div class="work-lockup">
+                    <button
+                      class="slider-arrow slider-arrow-prev"
+                      aria-label="Previous project"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <polyline points="15 18 9 12 15 6" />
+                      </svg>
+                    </button>
+
                     <ul class="slider">
-                      <li class="slider-item">
-                        <a href="https://nuxtnotes.vercel.app/" target="_blank">
-                          <div class="slider-item-image">
+                      <li class="slider-item" data-index="0">
+                        <div class="slider-card">
+                          <div class="slider-card-image">
                             <img
                               src="./assets/img/nuxtNotes.png"
                               alt="NuxtNotes app"
                             />
                           </div>
-                        </a>
-                        <h3 class="slider-item-title">NuxtNotes</h3>
-                        <a
-                          href="https://github.com/edvillatoro2/nuxt-notes/"
-                          target="_blank"
-                          >Github Page</a
-                        >
-                      </li>
-                      <li class="slider-item">
-                        <div class="slider-item-image">
-                          <img
-                            src="./assets/img/demo.gif"
-                            alt="Fetch chrome extension"
-                          />
+                          <div class="slider-card-body">
+                            <div class="slider-card-tags">
+                              <span class="tag">NUXT</span>
+                              <span class="tag">VUE 3</span>
+                              <span class="tag">TAILWIND</span>
+                              <span class="tag">TYPE SCRIPT</span>
+                            </div>
+                            <h3 class="slider-card-title">NUXTNOTES</h3>
+                            <p class="slider-card-desc">
+                              A full-stack note taking app built with Nuxt 3,
+                              PostgreSQL and Tailwind CSS.
+                            </p>
+                            <div class="slider-card-footer">
+                              <a
+                                href="https://nuxtnotes.vercel.app/"
+                                target="_blank"
+                                class="slider-card-link"
+                                >VIEW PROJECT <span>↗</span></a
+                              >
+                              <a
+                                href="https://nuxtnotes.vercel.app/"
+                                target="_blank"
+                                class="slider-card-icon-btn"
+                                aria-label="Open project"
+                              >
+                                <svg
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="1.5"
+                                >
+                                  <rect
+                                    x="3"
+                                    y="3"
+                                    width="18"
+                                    height="18"
+                                    rx="3"
+                                  />
+                                  <path d="M9 3v18M3 9h6" />
+                                </svg>
+                              </a>
+                            </div>
+                          </div>
                         </div>
-                        <h3 class="slider-item-title">
-                          Fetch ( chrome extension )
-                        </h3>
-                        <a
-                          href="https://github.com/edvillatoro2/fetch"
-                          target="_blank"
-                          >Github Page</a
-                        >
                       </li>
-                      <li class="slider-item">
-                        <a
-                          href="https://edvillatoro2.github.io/frontend-mentor-tip-calculator/"
-                          target="_blank"
-                        >
-                          <div class="slider-item-image">
+                      <li class="slider-item" data-index="1">
+                        <div class="slider-card">
+                          <div class="slider-card-image">
+                            <img
+                              src="./assets/img/demo.gif"
+                              alt="Fetch chrome extension"
+                            />
+                          </div>
+                          <div class="slider-card-body">
+                            <div class="slider-card-tags">
+                              <span class="tag">JAVASCRIPT</span>
+                              <span class="tag">CHROME API</span>
+                              <span class="tag">EXTENSION</span>
+                            </div>
+                            <h3 class="slider-card-title">
+                              FETCH ( CHROME EXTENSION )
+                            </h3>
+                            <p class="slider-card-desc">
+                              A Chrome extension to simplify API requests and
+                              debugging.
+                            </p>
+                            <div class="slider-card-footer">
+                              <a
+                                href="https://github.com/edvillatoro2/fetch"
+                                target="_blank"
+                                class="slider-card-link"
+                                >VIEW PROJECT <span>↗</span></a
+                              >
+                              <a
+                                href="https://github.com/edvillatoro2/fetch"
+                                target="_blank"
+                                class="slider-card-icon-btn"
+                                aria-label="Open project"
+                              >
+                                <svg
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="1.5"
+                                >
+                                  <rect
+                                    x="3"
+                                    y="3"
+                                    width="18"
+                                    height="18"
+                                    rx="3"
+                                  />
+                                  <path d="M9 3v18M3 9h6" />
+                                </svg>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="slider-item" data-index="2">
+                        <div class="slider-card">
+                          <div class="slider-card-image">
                             <img
                               src="./assets/img/tip-calculator.png"
-                              alt="tip calculator"
+                              alt="Tip Calculator"
                             />
                           </div>
-                        </a>
-                        <h3 class="slider-item-title">Tip Calculator</h3>
-                        <a
-                          href="https://github.com/edvillatoro2/frontend-mentor-tip-calculator/"
-                          target="_blank"
-                          >Github Page</a
-                        >
+                          <div class="slider-card-body">
+                            <div class="slider-card-tags">
+                              <span class="tag">JAVASCRIPT</span>
+                              <span class="tag">HTML</span>
+                              <span class="tag">CSS</span>
+                            </div>
+                            <h3 class="slider-card-title">TIP CALCULATOR</h3>
+                            <p class="slider-card-desc">
+                              A clean, responsive tip calculator built with
+                              vanilla JavaScript.
+                            </p>
+                            <div class="slider-card-footer">
+                              <a
+                                href="https://edvillatoro2.github.io/frontend-mentor-tip-calculator/"
+                                target="_blank"
+                                class="slider-card-link"
+                                >VIEW PROJECT <span>↗</span></a
+                              >
+                              <a
+                                href="https://edvillatoro2.github.io/frontend-mentor-tip-calculator/"
+                                target="_blank"
+                                class="slider-card-icon-btn"
+                                aria-label="Open project"
+                              >
+                                <svg
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="1.5"
+                                >
+                                  <rect
+                                    x="3"
+                                    y="3"
+                                    width="18"
+                                    height="18"
+                                    rx="3"
+                                  />
+                                  <path d="M9 3v18M3 9h6" />
+                                </svg>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
                       </li>
-                      <li class="slider-item">
-                        <a
-                          href="https://finance-fintrax.vercel.app/"
-                          target="_blank"
-                        >
-                          <div class="slider-item-image">
+                      <li class="slider-item" data-index="3">
+                        <div class="slider-card">
+                          <div class="slider-card-image">
                             <img
                               src="./assets/img/fintrack.png"
-                              alt="fintrack"
+                              alt="FinTrack"
                             />
                           </div>
-                        </a>
-                        <h3 class="slider-item-title">FinTrack</h3>
-                        <a
-                          href="https://github.com/edvillatoro2/finance-dashboard"
-                          target="_blank"
-                          >Github Page</a
-                        >
+                          <div class="slider-card-body">
+                            <div class="slider-card-tags">
+                              <span class="tag">VUE 3</span>
+                              <span class="tag">NUXT</span>
+                              <span class="tag">POSTGRESQL</span>
+                            </div>
+                            <h3 class="slider-card-title">FINTRACK</h3>
+                            <p class="slider-card-desc">
+                              A personal finance dashboard for tracking income,
+                              expenses and budgets.
+                            </p>
+                            <div class="slider-card-footer">
+                              <a
+                                href="https://finance-fintrax.vercel.app/"
+                                target="_blank"
+                                class="slider-card-link"
+                                >VIEW PROJECT <span>↗</span></a
+                              >
+                              <a
+                                href="https://finance-fintrax.vercel.app/"
+                                target="_blank"
+                                class="slider-card-icon-btn"
+                                aria-label="Open project"
+                              >
+                                <svg
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="1.5"
+                                >
+                                  <rect
+                                    x="3"
+                                    y="3"
+                                    width="18"
+                                    height="18"
+                                    rx="3"
+                                  />
+                                  <path d="M9 3v18M3 9h6" />
+                                </svg>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
                       </li>
-                      <li class="slider-item">
-                        <a
-                          href="https://scissors-roc-paper.netlify.app/"
-                          target="_blank"
-                        >
-                          <div class="slider-item-image">
+                      <li class="slider-item" data-index="4">
+                        <div class="slider-card">
+                          <div class="slider-card-image">
                             <img
                               src="./assets/img/scissors-roc-paper.netlify.app_.png"
                               alt="Rock Paper Scissors"
                             />
                           </div>
-                        </a>
-                        <h3 class="slider-item-title">Rock, Paper, Scissors</h3>
-                        <a
-                          href="https://github.com/edvillatoro2/rock-paper-scissors"
-                          target="_blank"
-                          >Github Page</a
-                        >
+                          <div class="slider-card-body">
+                            <div class="slider-card-tags">
+                              <span class="tag">JAVASCRIPT</span>
+                              <span class="tag">HTML</span>
+                              <span class="tag">CSS</span>
+                            </div>
+                            <h3 class="slider-card-title">
+                              ROCK, PAPER, SCISSORS
+                            </h3>
+                            <p class="slider-card-desc">
+                              A fun and responsive game built with vanilla
+                              JavaScript.
+                            </p>
+                            <div class="slider-card-footer">
+                              <a
+                                href="https://scissors-roc-paper.netlify.app/"
+                                target="_blank"
+                                class="slider-card-link"
+                                >VIEW PROJECT <span>↗</span></a
+                              >
+                              <a
+                                href="https://scissors-roc-paper.netlify.app/"
+                                target="_blank"
+                                class="slider-card-icon-btn"
+                                aria-label="Open project"
+                              >
+                                <svg
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="1.5"
+                                >
+                                  <rect
+                                    x="3"
+                                    y="3"
+                                    width="18"
+                                    height="18"
+                                    rx="3"
+                                  />
+                                  <path d="M9 3v18M3 9h6" />
+                                </svg>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
                       </li>
                     </ul>
-                    <div class="slider-prev">
+
+                    <button
+                      class="slider-arrow slider-arrow-next"
+                      aria-label="Next project"
+                    >
                       <svg
-                        version="1.1"
-                        id="Layer_1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        x="0px"
-                        y="0px"
-                        viewBox="0 0 150 118"
-                        style="enable-background: new 0 0 150 118"
-                        xml:space="preserve"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
                       >
-                        <g
-                          transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)"
-                        >
-                          <path
-                            d="M561,1169C525,1155,10,640,3,612c-3-13,1-36,8-52c8-15,134-145,281-289C527,41,562,10,590,10c22,0,41,9,61,29c55,55,49,64-163,278L296,510h575c564,0,576,0,597,20c46,43,37,109-18,137c-19,10-159,13-590,13l-565,1l182,180c101,99,187,188,193,199c16,30,12,57-12,84C631,1174,595,1183,561,1169z"
-                          />
-                        </g>
+                        <polyline points="9 18 15 12 9 6" />
                       </svg>
-                    </div>
-                    <div class="slider-next">
-                      <svg
-                        version="1.1"
-                        id="Layer_1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        x="0px"
-                        y="0px"
-                        viewBox="0 0 150 118"
-                        style="enable-background: new 0 0 150 118"
-                        xml:space="preserve"
-                      >
-                        <g
-                          transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)"
-                        >
-                          <path
-                            d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"
-                          />
-                        </g>
-                      </svg>
-                    </div>
+                    </button>
+                  </div>
+
+                  <div class="slider-dots">
+                    <!-- dots injected by JS -->
                   </div>
                 </div>
               </li>
