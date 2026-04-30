@@ -899,10 +899,10 @@ body {
 .work-title-accent::after {
   content: "";
   position: absolute;
-  bottom: 10%;
+
   left: 50%;
   transform: translateX(-50%);
-  width: 55%;
+  width: 75%;
   height: 6px;
   background: #ea4c89;
   border-radius: 3px;
