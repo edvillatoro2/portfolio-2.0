@@ -1677,6 +1677,10 @@ body {
   }
   .work {
     max-width: 100%;
+    padding: 0 20px;
+  }
+  .slider-item.pos-center {
+    transform: translateX(0) scale(0.925);
   }
 }
 
