@@ -1325,13 +1325,25 @@ body {
 .contact-lockup {
   position: relative;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 900px;
   max-width: 75%;
   height: 100%;
   align-items: center;
-  justify-content: flex-end;
   margin: 0 auto;
   perspective: 1000px;
+}
+
+.contact-lockup h2 {
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 900;
+  letter-spacing: 0.05rem;
+  line-height: 1;
+  background: linear-gradient(180deg, #ffffff 0%, #ea4c89 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .contact-lockup .card {
@@ -1673,9 +1685,6 @@ body {
   }
   .about-banner img {
     width: 315px;
-  }
-  .contact-lockup {
-    justify-content: center;
   }
   .work-lockup .slider-item-image {
     width: 90px;
