@@ -1219,7 +1219,7 @@ body {
   margin: 0 auto;
   padding: 0 10%;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow-y: auto;
   background: #080810;
 }
 
@@ -1236,8 +1236,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  overflow: auto;
-  padding: 70px 0 20px;
+  padding: 80px 0 40px;
+  overflow: visible;
 }
 
 .about-fontsize {
@@ -1672,8 +1672,8 @@ body {
     left: 260px;
   }
   .about-banner h2 {
-    margin-top: 10px;
-    font-size: 3.74rem;
+    margin-top: 0;
+    font-size: clamp(2.5rem, 12vw, 4rem);
   }
   .about-banner h2::before {
     top: 28px;
@@ -1710,6 +1710,9 @@ body {
   .title-word {
     font-size: 2.5rem;
   }
+  .about {
+    padding: 0 6%;
+  }
   .about-banner::before {
     left: 155px;
   }
@@ -1718,7 +1721,7 @@ body {
   }
   .about-banner h2 {
     margin-top: 0;
-    font-size: 55px;
+    font-size: clamp(2.2rem, 11vw, 3.5rem);
   }
   .about-banner h2::before {
     top: 43px;
@@ -1734,8 +1737,14 @@ body {
   .about-options {
     display: none;
   }
+  .about-banner {
+    padding-top: 70px;
+    padding-bottom: 60px;
+  }
+
   .about-fontsize {
-    font-size: 0.875rem;
+    font-size: 0.85rem;
+    line-height: 1.65;
   }
   .work-lockup .slider-item-left,
   .work-lockup .slider-item-right {
