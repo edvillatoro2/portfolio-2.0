@@ -1352,7 +1352,6 @@ body {
   text-align: center;
   width: 100%;
   max-width: 420px;
-  margin: 0 auto;
   border-radius: 20px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.08);
@@ -1752,6 +1751,9 @@ body {
   }
   .outer-nav > li {
     font-size: 34px;
+  }
+  .contact-lockup .card {
+    padding: 40px 10px;
   }
 }
 
