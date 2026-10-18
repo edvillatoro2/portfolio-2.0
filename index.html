@@ -1,41 +1,71 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Edgar Villatoro</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="Edgar Villatoro - Front-end Developer" />
-    <meta name="keywords" content="frontend, developer, vue, javascript" />
+    <meta name="theme-color" content="#370e17" />
+    <meta
+      name="description"
+      content="Edgar Villatoro is a Shopify developer and graphic designer with a front-end background in Vue, Nuxt and TypeScript."
+    />
+    <meta
+      name="keywords"
+      content="Edgar Villatoro, Shopify developer, Liquid, graphic design, visual design, front-end developer, Vue, Nuxt, TypeScript"
+    />
     <meta name="author" content="Edgar Villatoro" />
+    <title>Edgar Villatoro — Shopify Developer &amp; Graphic Designer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;700;800&family=DM+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="assets/style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="assets/app.js"></script>
   </head>
 
   <body>
-    <!-- notification for small viewports and landscape oriented smartphones -->
     <div class="device-notification">
       <a class="device-notification-logo" href="#0">
         <h1>Edgar Villatoro</h1>
       </a>
       <p class="device-notification-message">
-        Ed Villatoro Front-end Developer
+        Ed Villatoro · Shopify Developer &amp; Graphic Designer
       </p>
     </div>
 
     <div class="perspective effect-rotate-left">
       <div class="container">
         <div class="outer-nav-return"></div>
+
         <div id="viewport" class="l-viewport">
           <div class="l-wrapper">
             <header class="header">
-              <a class="header-logo"> </a>
-              <button class="header-cta cta">Contact</button>
-              <div class="header-nav-toggle">
+              <a
+                class="header-logo"
+                href="#0"
+                aria-label="Edgar Villatoro home"
+              >
+                <span class="header-logo-mark">EV<span>.</span></span>
+              </a>
+
+              <button class="header-cta cta" type="button">Contact</button>
+
+              <div
+                class="header-nav-toggle"
+                role="button"
+                tabindex="0"
+                aria-label="Toggle navigation"
+              >
                 <span></span>
               </div>
             </header>
-            <nav class="l-side-nav">
+
+            <nav class="l-side-nav" aria-label="Section navigation">
               <ul class="side-nav">
                 <li class="is-active"><span>Home</span></li>
                 <li><span>Portfolio</span></li>
@@ -43,82 +73,104 @@
                 <li><span>Contact</span></li>
               </ul>
             </nav>
+
             <ul class="l-main-content main-content">
-              <!-- ===== HERO SECTION ===== -->
+              <!-- HOME -->
               <li class="l-section section section-is-active">
                 <div class="intro">
                   <canvas id="hero-bg"></canvas>
+
                   <div class="intro-banner">
                     <div class="about-info">
-                      <p class="greeting">Edgar Villatoro</p>
+                      <p class="greeting">
+                        Front-end developer, now building Shopify stores and
+                        brands
+                      </p>
+
                       <h1 class="main-title">
-                        <span class="title-word"> Frontend</span>
-                        <span class="title-word accent">Developer</span>
+                        <span class="title-word">Shopify Developer</span>
+                        <span class="title-word accent"
+                          >&amp; Graphic Designer</span
+                        >
                         <span class="cursor-line"></span>
                       </h1>
+
                       <p class="subtitle">
-                        Front-End Developer | Vue.js, Nuxt, TypeScript, Tailwind
-                        | UI Performance & Scalable Architecture
+                        Custom Shopify themes, Liquid, and visual design, backed
+                        by 5+ years of front-end engineering.
                       </p>
-                    </div>
-                    <div class="about-card">
-                      <img
-                        class="about-card__img"
-                        src="./assets/img/profile-pic.jpg"
-                        alt="Edgar Villatoro"
-                      />
+
+                      <div class="hero-note">
+                        <span class="hero-note-dot"></span>
+                        <span>Open to Shopify and design roles</span>
+                      </div>
                     </div>
                   </div>
+
                   <div class="scrolling-bar">
                     <div class="scrolling-track">
-                      <span class="scrolling-item">Html</span>
-                      <span class="scrolling-item">Css</span>
-                      <span class="scrolling-item">Javascript</span>
+                      <span class="scrolling-item">Shopify</span>
+                      <span class="scrolling-item">Liquid</span>
+                      <span class="scrolling-item">Graphic Design</span>
+                      <span class="scrolling-item">Theme Development</span>
+                      <span class="scrolling-item">Visual Design</span>
+                      <span class="scrolling-item">Creative Direction</span>
+                      <span class="scrolling-item">Email Development</span>
                       <span class="scrolling-item">Vue.js</span>
                       <span class="scrolling-item">Nuxt</span>
+                      <span class="scrolling-item">TypeScript</span>
+                      <span class="scrolling-item">JavaScript</span>
+                      <span class="scrolling-item">CSS</span>
                       <span class="scrolling-item">Tailwind</span>
                       <span class="scrolling-item">Sass</span>
-                      <span class="scrolling-item">Bootstrap</span>
                       <span class="scrolling-item">Pinia</span>
                       <span class="scrolling-item">Vite</span>
-                      <span class="scrolling-item">GitHub</span>
-                      <span class="scrolling-item">GitLab</span>
-                      <span class="scrolling-item">Sourcetree</span>
                       <span class="scrolling-item">Storybook</span>
                       <span class="scrolling-item">Jest</span>
-                      <span class="scrolling-item">NPM</span>
-                      <span class="scrolling-item">JSON</span>
-                      <span class="scrolling-item">REST API</span>
-                      <span class="scrolling-item">PostgreSQL</span>
-                      <span class="scrolling-item">Neon</span>
-                      <span class="scrolling-item">Litmus</span>
-                      <span class="scrolling-item">Email Development</span>
+                      <span class="scrolling-item">GitHub</span>
+                      <span class="scrolling-item">GitLab</span>
+                      <span class="scrolling-item">REST APIs</span>
                     </div>
+                  </div>
+
+                  <div class="hero-bottom">
+                    <span>BASED IN VIRGINIA, USA</span>
+                    <span
+                      >OPEN TO SHOPIFY &amp; DESIGN ROLES
+                      <span class="hero-bottom-arrow">↗</span></span
+                    >
                   </div>
                 </div>
               </li>
 
-              <!-- ===== PORTFOLIO SECTION ===== -->
-
+              <!-- PORTFOLIO -->
               <li class="l-section section">
                 <div class="work">
                   <div class="work-header">
                     <div class="work-eyebrow">
                       <span class="work-eyebrow-line"></span>
-                      <span class="work-eyebrow-text">MY WORK</span>
+                      <span class="work-eyebrow-text"
+                        >SELECTED WORK / 2024—2026</span
+                      >
                       <span class="work-eyebrow-line"></span>
                     </div>
+
                     <h2 class="work-title">
-                      PORT<span class="work-title-accent">F</span>OLIO
+                      PORT<span class="work-title-accent">F</span>OLIO<span
+                        class="work-title-period"
+                        >.</span
+                      >
                     </h2>
                     <p class="work-subtitle">
-                      A SELECTION OF PROJECTS I'VE BUILT
+                      Shopify builds, design-minded interfaces, and experiments
+                      in code.
                     </p>
                   </div>
 
                   <div class="work-lockup">
                     <button
                       class="slider-arrow slider-arrow-prev"
+                      type="button"
                       aria-label="Previous project"
                     >
                       <svg
@@ -127,283 +179,315 @@
                         stroke="currentColor"
                         stroke-width="2"
                       >
-                        <polyline points="15 18 9 12 15 6" />
+                        <polyline points="15 18 9 12 15 6"></polyline>
                       </svg>
                     </button>
 
                     <ul class="slider">
                       <li class="slider-item" data-index="0">
-                        <div class="slider-card">
+                        <article class="slider-card">
+                          <div class="slider-card-image">
+                            <img
+                              src="./assets/img/esc_ala-shopify.png"
+                              alt="ESC-ALA Shopify storefront concept"
+                              loading="lazy"
+                            />
+                            <span class="project-number">01 / 05</span>
+                          </div>
+                          <div class="slider-card-body">
+                            <div class="slider-card-topline">
+                              <span class="project-type"
+                                >ECOMMERCE / THEME DEVELOPMENT</span
+                              >
+                              <div class="slider-card-tags">
+                                <span class="tag">SHOPIFY</span>
+                                <span class="tag">LIQUID</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JAVASCRIPT</span>
+                              </div>
+                            </div>
+                            <h3 class="slider-card-title">
+                              ESC-ALA<span>.</span>
+                            </h3>
+                            <p class="slider-card-desc">
+                              A custom Shopify storefront concept for a modern
+                              bouldering gym, with responsive layouts,
+                              interactive sections, and custom animations.
+                            </p>
+                            <div class="slider-card-footer">
+                              <a
+                                class="slider-card-link"
+                                href="https://esc-ala.myshopify.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                VIEW LIVE PROJECT <span>↗</span>
+                              </a>
+                              <a
+                                class="slider-card-icon-btn"
+                                href="https://github.com/edvillatoro2/esc-ala"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="View ESC-ALA source code"
+                              >
+                                <svg
+                                  viewBox="0 0 24 24"
+                                  fill="currentColor"
+                                  aria-hidden="true"
+                                >
+                                  <path
+                                    d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.76-.24.76-.54v-2.1c-3.1.67-3.76-1.32-3.76-1.32-.5-1.28-1.24-1.62-1.24-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.7 1.15 1.7 1.15.99 1.69 2.59 1.2 3.22.92.1-.72.39-1.2.7-1.48-2.48-.28-5.08-1.24-5.08-5.52 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.29-2.61 5.23-5.1 5.51.4.35.75 1.02.75 2.06v3.06c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"
+                                  ></path>
+                                </svg>
+                              </a>
+                            </div>
+                          </div>
+                        </article>
+                      </li>
+
+                      <li class="slider-item" data-index="1">
+                        <article class="slider-card">
                           <div class="slider-card-image">
                             <img
                               src="./assets/img/nuxtNotes.png"
-                              alt="NuxtNotes app"
+                              alt="NuxtNotes application preview"
+                              loading="lazy"
                             />
+                            <span class="project-number">02 / 05</span>
                           </div>
                           <div class="slider-card-body">
-                            <div class="slider-card-tags">
-                              <span class="tag">NUXT 4</span>
-                              <span class="tag">TAILWIND</span>
-                              <span class="tag">TYPESCRIPT</span>
-                              <span class="tag">POSTGRESSQL</span>
-                            </div>
-                            <h3 class="slider-card-title">NUXTNOTES</h3>
-                            <p class="slider-card-desc">
-                              A full-stack note taking app built with Nuxt 4,
-                              PostgreSQL and Tailwind CSS.
-                            </p>
-                            <div class="slider-card-footer">
-                              <a
-                                href="https://nuxtnotes.vercel.app/"
-                                target="_blank"
-                                class="slider-card-link"
-                                >VIEW PROJECT <span>↗</span></a
+                            <div class="slider-card-topline">
+                              <span class="project-type"
+                                >FULL-STACK APPLICATION</span
                               >
-                              <a
-                                href="https://github.com/edvillatoro2/nuxt-notes/"
-                                target="_blank"
-                                class="slider-card-icon-btn"
-                                aria-label="Open project"
-                              >
-                                <svg
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="1.5"
-                                >
-                                  <rect
-                                    x="3"
-                                    y="3"
-                                    width="18"
-                                    height="18"
-                                    rx="3"
-                                  />
-                                  <path d="M9 3v18M3 9h6" />
-                                </svg>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li class="slider-item" data-index="1">
-                        <div class="slider-card">
-                          <div class="slider-card-image">
-                            <img
-                              src="./assets/img/demo.gif"
-                              alt="Fetch chrome extension"
-                            />
-                          </div>
-                          <div class="slider-card-body">
-                            <div class="slider-card-tags">
-                              <span class="tag">VUE 3</span>
-                              <span class="tag">TYPESCRIPT</span>
-                              <span class="tag">TAILWIND</span>
-                              <span class="tag">CRXJS</span>
-                              <span class="tag">CHROME API</span>
+                              <div class="slider-card-tags">
+                                <span class="tag">NUXT 4</span>
+                                <span class="tag">TYPESCRIPT</span>
+                                <span class="tag">TAILWIND</span>
+                                <span class="tag">POSTGRESQL</span>
+                              </div>
                             </div>
                             <h3 class="slider-card-title">
-                              FETCH ( CHROME EXTENSION )
+                              NuxtNotes<span>.</span>
                             </h3>
                             <p class="slider-card-desc">
-                              A Chrome extension to filter and categorize your
-                              YouTube favorited videos.
+                              A full-stack note-taking app built with Nuxt 4,
+                              PostgreSQL, and Tailwind CSS.
                             </p>
                             <div class="slider-card-footer">
                               <a
-                                href="https://github.com/edvillatoro2/fetch"
-                                target="_blank"
                                 class="slider-card-link"
-                                >VIEW PROJECT <span>↗</span></a
-                              >
-                              <a
-                                href="https://github.com/edvillatoro2/fetch"
+                                href="https://nuxtnotes.vercel.app/"
                                 target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                VIEW LIVE PROJECT <span>↗</span>
+                              </a>
+                              <a
                                 class="slider-card-icon-btn"
-                                aria-label="Open project"
+                                href="https://github.com/edvillatoro2/nuxt-notes/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="View NuxtNotes source code"
                               >
                                 <svg
                                   viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="1.5"
+                                  fill="currentColor"
+                                  aria-hidden="true"
                                 >
-                                  <rect
-                                    x="3"
-                                    y="3"
-                                    width="18"
-                                    height="18"
-                                    rx="3"
-                                  />
-                                  <path d="M9 3v18M3 9h6" />
+                                  <path
+                                    d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.76-.24.76-.54v-2.1c-3.1.67-3.76-1.32-3.76-1.32-.5-1.28-1.24-1.62-1.24-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.7 1.15 1.7 1.15.99 1.69 2.59 1.2 3.22.92.1-.72.39-1.2.7-1.48-2.48-.28-5.08-1.24-5.08-5.52 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.29-2.61 5.23-5.1 5.51.4.35.75 1.02.75 2.06v3.06c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"
+                                  ></path>
                                 </svg>
                               </a>
                             </div>
                           </div>
-                        </div>
+                        </article>
                       </li>
+
                       <li class="slider-item" data-index="2">
-                        <div class="slider-card">
+                        <article class="slider-card">
                           <div class="slider-card-image">
                             <img
                               src="./assets/img/tip-calculator.png"
-                              alt="Tip Calculator"
+                              alt="Tip calculator project preview"
+                              loading="lazy"
                             />
+                            <span class="project-number">03 / 05</span>
                           </div>
                           <div class="slider-card-body">
-                            <div class="slider-card-tags">
-                              <span class="tag">JAVASCRIPT</span>
-                              <span class="tag">HTML</span>
-                              <span class="tag">CSS</span>
+                            <div class="slider-card-topline">
+                              <span class="project-type"
+                                >FRONTEND CHALLENGE</span
+                              >
+                              <div class="slider-card-tags">
+                                <span class="tag">JAVASCRIPT</span>
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                              </div>
                             </div>
-                            <h3 class="slider-card-title">TIP CALCULATOR</h3>
+                            <h3 class="slider-card-title">
+                              Tip Calculator<span>.</span>
+                            </h3>
                             <p class="slider-card-desc">
                               A clean, responsive tip calculator built with
-                              vanilla JavaScript.
+                              vanilla JavaScript, with an emphasis on clear
+                              inputs and immediate feedback.
                             </p>
                             <div class="slider-card-footer">
                               <a
+                                class="slider-card-link"
                                 href="https://edvillatoro2.github.io/frontend-mentor-tip-calculator/"
                                 target="_blank"
-                                class="slider-card-link"
-                                >VIEW PROJECT <span>↗</span></a
+                                rel="noopener noreferrer"
                               >
+                                VIEW LIVE PROJECT <span>↗</span>
+                              </a>
                               <a
+                                class="slider-card-icon-btn"
                                 href="https://github.com/edvillatoro2/frontend-mentor-tip-calculator/"
                                 target="_blank"
-                                class="slider-card-icon-btn"
-                                aria-label="Open project"
+                                rel="noopener noreferrer"
+                                aria-label="View Tip Calculator source code"
                               >
                                 <svg
                                   viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="1.5"
+                                  fill="currentColor"
+                                  aria-hidden="true"
                                 >
-                                  <rect
-                                    x="3"
-                                    y="3"
-                                    width="18"
-                                    height="18"
-                                    rx="3"
-                                  />
-                                  <path d="M9 3v18M3 9h6" />
+                                  <path
+                                    d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.76-.24.76-.54v-2.1c-3.1.67-3.76-1.32-3.76-1.32-.5-1.28-1.24-1.62-1.24-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.7 1.15 1.7 1.15.99 1.69 2.59 1.2 3.22.92.1-.72.39-1.2.7-1.48-2.48-.28-5.08-1.24-5.08-5.52 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.29-2.61 5.23-5.1 5.51.4.35.75 1.02.75 2.06v3.06c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"
+                                  ></path>
                                 </svg>
                               </a>
                             </div>
                           </div>
-                        </div>
+                        </article>
                       </li>
+
                       <li class="slider-item" data-index="3">
-                        <div class="slider-card">
+                        <article class="slider-card">
                           <div class="slider-card-image">
                             <img
                               src="./assets/img/fintrack.png"
-                              alt="FinTrack"
+                              alt="FinTrack personal finance dashboard preview"
+                              loading="lazy"
                             />
+                            <span class="project-number">04 / 05</span>
                           </div>
                           <div class="slider-card-body">
-                            <div class="slider-card-tags">
-                              <span class="tag">NUXT 4</span>
-                              <span class="tag">TAILWIND</span>
-                              <span class="tag">TYPESCRIPT</span>
-                              <span class="tag">POSTGRESSQL</span>
+                            <div class="slider-card-topline">
+                              <span class="project-type">PRODUCT CONCEPT</span>
+                              <div class="slider-card-tags">
+                                <span class="tag">NUXT 4</span>
+                                <span class="tag">TYPESCRIPT</span>
+                                <span class="tag">TAILWIND</span>
+                                <span class="tag">POSTGRESQL</span>
+                              </div>
                             </div>
-                            <h3 class="slider-card-title">FINTRACK</h3>
+                            <h3 class="slider-card-title">
+                              FinTrack<span>.</span>
+                            </h3>
                             <p class="slider-card-desc">
-                              A personal finance dashboard for tracking income,
-                              expenses and budgets.
+                              A personal finance dashboard concept for
+                              organizing income, expenses, and budgets in a
+                              clear interface.
                             </p>
                             <div class="slider-card-footer">
                               <a
+                                class="slider-card-link"
                                 href="https://finance-fintrax.vercel.app/"
                                 target="_blank"
-                                class="slider-card-link"
-                                >VIEW PROJECT <span>↗</span></a
+                                rel="noopener noreferrer"
                               >
+                                VIEW LIVE PROJECT <span>↗</span>
+                              </a>
                               <a
+                                class="slider-card-icon-btn"
                                 href="https://github.com/edvillatoro2/finance-dashboard"
                                 target="_blank"
-                                class="slider-card-icon-btn"
-                                aria-label="Open project"
+                                rel="noopener noreferrer"
+                                aria-label="View FinTrack source code"
                               >
                                 <svg
                                   viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="1.5"
+                                  fill="currentColor"
+                                  aria-hidden="true"
                                 >
-                                  <rect
-                                    x="3"
-                                    y="3"
-                                    width="18"
-                                    height="18"
-                                    rx="3"
-                                  />
-                                  <path d="M9 3v18M3 9h6" />
+                                  <path
+                                    d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.76-.24.76-.54v-2.1c-3.1.67-3.76-1.32-3.76-1.32-.5-1.28-1.24-1.62-1.24-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.7 1.15 1.7 1.15.99 1.69 2.59 1.2 3.22.92.1-.72.39-1.2.7-1.48-2.48-.28-5.08-1.24-5.08-5.52 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.29-2.61 5.23-5.1 5.51.4.35.75 1.02.75 2.06v3.06c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"
+                                  ></path>
                                 </svg>
                               </a>
                             </div>
                           </div>
-                        </div>
+                        </article>
                       </li>
+
                       <li class="slider-item" data-index="4">
-                        <div class="slider-card">
+                        <article class="slider-card">
                           <div class="slider-card-image">
                             <img
                               src="./assets/img/scissors-roc-paper.netlify.app_.png"
-                              alt="Rock Paper Scissors"
+                              alt="Rock, Paper, Scissors game preview"
+                              loading="lazy"
                             />
+                            <span class="project-number">05 / 05</span>
                           </div>
                           <div class="slider-card-body">
-                            <div class="slider-card-tags">
-                              <span class="tag">JAVASCRIPT</span>
-                              <span class="tag">HTML</span>
-                              <span class="tag">CSS</span>
+                            <div class="slider-card-topline">
+                              <span class="project-type"
+                                >INTERACTIVE EXPERIMENT</span
+                              >
+                              <div class="slider-card-tags">
+                                <span class="tag">JAVASCRIPT</span>
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                              </div>
                             </div>
                             <h3 class="slider-card-title">
-                              ROCK, PAPER, SCISSORS
+                              Rock, Paper, Scissors<span>.</span>
                             </h3>
                             <p class="slider-card-desc">
-                              A fun and responsive game built with vanilla
-                              JavaScript.
+                              A responsive browser game built with vanilla
+                              JavaScript, featuring interactive choices and
+                              score tracking.
                             </p>
                             <div class="slider-card-footer">
                               <a
+                                class="slider-card-link"
                                 href="https://scissors-roc-paper.netlify.app/"
                                 target="_blank"
-                                class="slider-card-link"
-                                >VIEW PROJECT <span>↗</span></a
+                                rel="noopener noreferrer"
                               >
+                                VIEW LIVE PROJECT <span>↗</span>
+                              </a>
                               <a
+                                class="slider-card-icon-btn"
                                 href="https://github.com/edvillatoro2/rock-paper-scissors"
                                 target="_blank"
-                                class="slider-card-icon-btn"
-                                aria-label="Open project"
+                                rel="noopener noreferrer"
+                                aria-label="View Rock, Paper, Scissors source code"
                               >
                                 <svg
                                   viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="1.5"
+                                  fill="currentColor"
+                                  aria-hidden="true"
                                 >
-                                  <rect
-                                    x="3"
-                                    y="3"
-                                    width="18"
-                                    height="18"
-                                    rx="3"
-                                  />
-                                  <path d="M9 3v18M3 9h6" />
+                                  <path
+                                    d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.76-.24.76-.54v-2.1c-3.1.67-3.76-1.32-3.76-1.32-.5-1.28-1.24-1.62-1.24-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.7 1.15 1.7 1.15.99 1.69 2.59 1.2 3.22.92.1-.72.39-1.2.7-1.48-2.48-.28-5.08-1.24-5.08-5.52 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.29-2.61 5.23-5.1 5.51.4.35.75 1.02.75 2.06v3.06c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"
+                                  ></path>
                                 </svg>
                               </a>
                             </div>
                           </div>
-                        </div>
+                        </article>
                       </li>
                     </ul>
 
                     <button
                       class="slider-arrow slider-arrow-next"
+                      type="button"
                       aria-label="Next project"
                     >
                       <svg
@@ -412,80 +496,95 @@
                         stroke="currentColor"
                         stroke-width="2"
                       >
-                        <polyline points="9 18 15 12 9 6" />
+                        <polyline points="9 18 15 12 9 6"></polyline>
                       </svg>
                     </button>
                   </div>
 
-                  <div class="slider-dots">
-                    <!-- dots injected by JS -->
+                  <div class="slider-dots"></div>
+
+                  <div class="work-bottom">
+                    <span>DESIGN-MINDED DEVELOPMENT</span>
+                    <span>01 — 05</span>
                   </div>
                 </div>
               </li>
 
-              <!-- ===== ABOUT SECTION ===== -->
+              <!-- ABOUT -->
               <li class="l-section section">
                 <div class="about">
                   <canvas id="about-bg"></canvas>
+
                   <div class="about-banner">
-                    <h2>About</h2>
+                    <div class="about-kicker">
+                      A LITTLE ABOUT ME <span>— 03</span>
+                    </div>
+
+                    <h2>About<span class="about-title-period">.</span></h2>
+
                     <p class="about-fontsize">
-                      Front-End Developer with 5+ years of experience building
-                      web interfaces that actually feel good to use. I got into
-                      web development because I was genuinely fascinated by how
-                      the web works under the hood, and that curiosity hasn't
-                      slowed down since.
+                      I’m a front-end developer with 5+ years of experience in
+                      Vue, Nuxt and TypeScript, now focused on Shopify theme
+                      development and graphic design. I like the point where a
+                      brand’s visual identity meets a storefront that is fast,
+                      clear and easy to shop.
+                      <br /><br />
+                      I’m building custom Shopify themes in Liquid and studying
+                      <strong>graphic design at ilovecreatives</strong>. Outside
+                      of work, I boulder and collect design inspiration.
                     </p>
-                    <p class="about-fontsize">
-                      Most of my work has lived in the Vue.js ecosystem,
-                      building component-based architectures, working with
-                      TypeScript in larger codebases, and translating Figma
-                      designs into pixel-perfect, accessible interfaces. I care
-                      a lot about the details: whether that's getting the
-                      spacing just right, making sure a component is reusable
-                      and well-documented, or writing a unit test that'll save
-                      future-me from a headache down the road.
-                    </p>
-                    <p class="about-fontsize">
-                      On the tooling side, I'm comfortable with GitLab/GitHub,
-                      Vite, Webpack, and I've been leaning more into Storybook
-                      for component documentation and Jest for unit testing. I
-                      also have a soft spot for styling; Tailwind CSS, Sass, or
-                      plain CSS, I enjoy the craft of making things look and
-                      feel polished.
-                    </p>
-                    <p class="about-fontsize">
-                      What I genuinely enjoy most though is the collaborative
-                      side of this work. I like being in rooms (or Slack
-                      channels) where ideas get challenged, problems get solved
-                      together, and everyone's trying to build something they're
-                      proud of. Front-end development, at its core, is about
-                      people, and I try to keep that in mind with every line of
-                      code I write. If you want to connect or work on something
-                      together, I'd love to hear from you.
-                    </p>
+
+                    <div class="about-focus">
+                      <span class="about-focus-label"
+                        >CURRENTLY FOCUSED ON</span
+                      >
+                      <span>Shopify Development</span>
+                      <span>Graphic Design</span>
+                      <span>Creative Direction</span>
+                    </div>
+
+                    <div class="about-bottom">
+                      <span>DEVELOPMENT MEETS DESIGN</span>
+                      <span
+                        >ALWAYS LEARNING
+                        <span class="about-bottom-arrow">↗</span></span
+                      >
+                    </div>
                   </div>
                 </div>
               </li>
 
-              <!-- ===== CONTACT SECTION ===== -->
+              <!-- CONTACT -->
               <li class="l-section section">
                 <div class="contact">
                   <div class="contact-lockup">
-                    <h2>Let’s Connect</h2>
+                    <div class="contact-eyebrow">
+                      NEED A SHOPIFY STORE OR BRAND DESIGN? / 04
+                    </div>
+
+                    <h2>
+                      Let’s<br /><span>Connect</span
+                      ><span class="contact-title-period">.</span>
+                    </h2>
+
+                    <p class="contact-intro">
+                      Open to Shopify development and graphic design work. My
+                      inbox is open.
+                    </p>
+
                     <div class="card card-tilt">
                       <div class="card-glow"></div>
 
                       <div class="card-information">
+                        <span class="contact-card-label">GET IN TOUCH</span>
                         <a
                           href="mailto:edvillatoro2@gmail.com"
                           class="card-link"
+                          >edvillatoro2@gmail.com <span>↗</span></a
                         >
-                          edvillatoro2@gmail.com
-                        </a>
-                        <a href="tel:7036878144" class="card-link">
-                          (703) 687-8144
-                        </a>
+                        <a href="tel:7036878144" class="card-link"
+                          >(703) 687-8144 <span>↗</span></a
+                        >
                       </div>
 
                       <ul class="card-options">
@@ -493,22 +592,29 @@
                           <a
                             href="https://www.linkedin.com/in/edgar-villatoro/"
                             target="_blank"
+                            rel="noopener noreferrer"
+                            >LinkedIn <span>↗</span></a
                           >
-                            LinkedIn
-                          </a>
                         </li>
                         <li>
                           <a
                             href="https://github.com/edvillatoro2/"
                             target="_blank"
+                            rel="noopener noreferrer"
+                            >GitHub <span>↗</span></a
                           >
-                            GitHub
-                          </a>
                         </li>
                         <li>
-                          <a href="mailto:edvillatoro2@gmail.com"> Email Me </a>
+                          <a href="mailto:edvillatoro2@gmail.com"
+                            >Email <span>↗</span></a
+                          >
                         </li>
                       </ul>
+                    </div>
+
+                    <div class="contact-bottom">
+                      <span>EDGAR VILLATORO © 2026</span>
+                      <span>MADE WITH CURIOSITY.</span>
                     </div>
                   </div>
                 </div>
@@ -517,6 +623,7 @@
           </div>
         </div>
       </div>
+
       <ul class="outer-nav">
         <li class="is-active">Home</li>
         <li>Works</li>

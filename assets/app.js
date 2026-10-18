@@ -1,20 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
   // ============================================================
-  // HERO CANVAS BACKGROUND
+  // HERO CANVAS BACKGROUND (fills the whole site on the homepage)
   // ============================================================
   (function () {
     const canvas = document.getElementById("hero-bg");
-    if (!canvas) return;
-    const hero = canvas.parentElement;
+    const viewport = document.getElementById("viewport");
+    if (!canvas || !viewport) return;
+
+    // Move the canvas out of the hero section so it can cover the full
+    // viewport (the hero itself is narrower than the screen).
+    viewport.insertBefore(canvas, viewport.firstChild);
+
     const ctx = canvas.getContext("2d");
 
     let W, H, particles;
     const mouse = { x: -999, y: -999 };
-    const COLS = ["rgba(15,51,255,", "rgba(134,134,172,", "rgba(255,255,255,"];
+    const BG = "#370e17";
+    const COLS = ["rgba(40,155,215,", "rgba(190,166,148,", "rgba(248,231,202,"];
 
     function resize() {
-      W = canvas.width = hero.offsetWidth;
-      H = canvas.height = hero.offsetHeight;
+      W = canvas.width = viewport.offsetWidth;
+      H = canvas.height = viewport.offsetHeight;
       init();
     }
 
@@ -47,10 +53,10 @@ document.addEventListener("DOMContentLoaded", function () {
       ctx.clearRect(0, 0, W, H);
 
       // base background
-      ctx.fillStyle = "#060610";
+      ctx.fillStyle = BG;
       ctx.fillRect(0, 0, W, H);
 
-      // blue glow — top left
+      // blue glow, top left
       const g1 = ctx.createRadialGradient(
         W * 0.15,
         H * 0.3,
@@ -59,12 +65,12 @@ document.addEventListener("DOMContentLoaded", function () {
         H * 0.3,
         W * 0.55,
       );
-      g1.addColorStop(0, "rgba(15,51,255,0.12)");
-      g1.addColorStop(1, "rgba(6,6,16,0)");
+      g1.addColorStop(0, "rgba(40,155,215,0.16)");
+      g1.addColorStop(1, "rgba(55,14,23,0)");
       ctx.fillStyle = g1;
       ctx.fillRect(0, 0, W, H);
 
-      // purple glow — bottom right
+      // cream glow, bottom right
       const g2 = ctx.createRadialGradient(
         W * 0.8,
         H * 0.7,
@@ -73,8 +79,8 @@ document.addEventListener("DOMContentLoaded", function () {
         H * 0.7,
         W * 0.4,
       );
-      g2.addColorStop(0, "rgba(134,134,172,0.07)");
-      g2.addColorStop(1, "rgba(6,6,16,0)");
+      g2.addColorStop(0, "rgba(248,231,202,0.07)");
+      g2.addColorStop(1, "rgba(55,14,23,0)");
       ctx.fillStyle = g2;
       ctx.fillRect(0, 0, W, H);
 
@@ -125,16 +131,33 @@ document.addEventListener("DOMContentLoaded", function () {
       requestAnimationFrame(draw);
     }
 
-    hero.addEventListener("mousemove", function (e) {
+    // Mouse interaction works anywhere on the site
+    viewport.addEventListener("mousemove", function (e) {
       const rect = canvas.getBoundingClientRect();
       mouse.x = e.clientX - rect.left;
       mouse.y = e.clientY - rect.top;
     });
 
-    hero.addEventListener("mouseleave", function () {
+    viewport.addEventListener("mouseleave", function () {
       mouse.x = -999;
       mouse.y = -999;
     });
+
+    // Only show the canvas while the Home section is active
+    const homeSection = document.querySelector(".main-content .section");
+    function syncVisibility() {
+      canvas.classList.toggle(
+        "is-hidden",
+        !homeSection.classList.contains("section-is-active"),
+      );
+    }
+    if (homeSection) {
+      new MutationObserver(syncVisibility).observe(homeSection, {
+        attributes: true,
+        attributeFilter: ["class"],
+      });
+      syncVisibility();
+    }
 
     window.addEventListener("resize", resize);
     resize();
@@ -482,7 +505,7 @@ document.addEventListener("DOMContentLoaded", () => {
       glow.style.background = `
         radial-gradient(
           circle at ${x}px ${y}px,
-          rgba(79, 172, 254, 0.7),
+          rgba(40, 155, 215, 0.45),
           transparent 60%
         )
       `;
@@ -498,7 +521,7 @@ document.addEventListener("DOMContentLoaded", () => {
       glow.style.background = `
         radial-gradient(
           circle at 50% 50%,
-          rgba(79, 172, 254, 0.35),
+          rgba(40, 155, 215, 0.25),
           transparent 60%
         )
       `;
