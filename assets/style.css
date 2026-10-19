@@ -1931,9 +1931,6 @@ a:focus-visible,
     letter-spacing: 0.04em;
   }
 
-  .outer-nav {
-    left: 35%;
-  }
   .outer-nav > li {
     font-size: 2.8rem;
   }
