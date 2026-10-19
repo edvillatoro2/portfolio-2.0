@@ -1604,8 +1604,7 @@ a:focus-visible,
     --page-gutter: 22px;
   }
   .l-wrapper {
-    padding-right: 22px;
-    padding-left: 22px;
+    padding: 0;
   }
   .header {
     height: 60px;
@@ -1834,15 +1833,6 @@ a:focus-visible,
 @media (max-width: 480px) {
   .header-logo {
     gap: 7px;
-  }
-  .header-cta {
-    left: auto;
-    right: 48px;
-    transform: translateY(-50%);
-  }
-  .header-cta:hover,
-  .header-cta.is-active {
-    transform: translateY(-50%);
   }
 
   .intro {
