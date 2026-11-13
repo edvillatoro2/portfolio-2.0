@@ -475,6 +475,39 @@ document.addEventListener("DOMContentLoaded", function () {
   // ============================================================
   // INIT
   // ============================================================
+  // Activate the correct section when arriving through a URL hash
+  function activateHashSection() {
+    const hash = window.location.hash;
+    if (!hash) return;
+
+    const target = document.getElementById(hash.substring(1));
+    if (!target) return;
+
+    const targetSection = target.closest(".main-content .section");
+    if (!targetSection) return;
+
+    const sections = Array.from(
+      document.querySelectorAll(".main-content .section"),
+    );
+
+    const nextPos = sections.indexOf(targetSection);
+    if (nextPos === -1) return;
+
+    const curActive = document.querySelector(".side-nav .is-active");
+    const curPos = Array.from(
+      document.querySelector(".side-nav").children,
+    ).indexOf(curActive);
+
+    const lastItem = sections.length - 1;
+
+    updateNavs(nextPos);
+    updateContent(curPos, nextPos, lastItem);
+  }
+
+  // Handle direct links to sections
+  activateHashSection();
+  window.addEventListener("hashchange", activateHashSection);
+
   outerNav();
 });
 
